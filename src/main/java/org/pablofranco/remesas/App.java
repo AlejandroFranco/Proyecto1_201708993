@@ -1,8 +1,7 @@
 package org.pablofranco.remesas;
 
-import org.pablofranco.remesas.org.pablofranco.ui.InterfazLogin;
+import org.pablofranco.remesas.org.pablofranco.ui.InterfazPrincipal;
 
-import java.security.NoSuchAlgorithmException;
 
 /**
  * Proyecto1_201708993
@@ -10,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class App {
     public static void main(String[] args) {
-        InterfazLogin.ventanaLogin();
+        InterfazPrincipal.VentanaPrincipal();
     }
 }
 

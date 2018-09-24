@@ -2,7 +2,6 @@ package org.pablofranco.remesas.org.pablofranco.ui;
 
 import org.pablofranco.bean.Beneficiario;
 import org.pablofranco.bean.Remitente;
-import org.pablofranco.remesas.org.pablofranco.Serializacion.Serializadora;
 
 import javax.swing.*;
 import java.awt.*;
@@ -41,6 +40,7 @@ public class FormularioNuevoUsuario {
     private static JLabel etiquetaContrasena;
 
     public static void ventanaNuevoUsuario() {
+
         ventaNuevoUsuario = new JFrame("VentaNuevoUsuario");
         ventaNuevoUsuario.setPreferredSize(new Dimension(600, 600));
         ventaNuevoUsuario.setLayout(new GridBagLayout());
@@ -199,8 +199,8 @@ public class FormularioNuevoUsuario {
     private static class AdaptadorMouse extends MouseAdapter {
         public void mouseClicked(MouseEvent e) {
             if (e.getSource() == botonVolver) {
-                ventaNuevoUsuario.dispose();
-                InterfazLogin.ventanaLogin();
+
+
             } else if (comboTipoUsuario.getSelectedItem().equals("Remitente")) {
                 String identificadorTexto = campoIdentificador.getText();
                 String nombre = campoNombre.getText();
@@ -216,11 +216,6 @@ public class FormularioNuevoUsuario {
                 Remitente rem = new Remitente(nombre, apellido, nacionalidad,
                         fechaNacimiento, direccionResidencia, telefono, mail, tipoUsuario,
                         123, nombreUsuario, contrasena);
-
-                ventaNuevoUsuario.dispose();
-                Serializadora.getInstancia().guardarDatosRemitentes(rem);
-
-                InterfazLogin.ventanaLogin();
             } else {
                 String identificadorTexto = campoIdentificador.getText();
                 int identificadorNumero = Integer.parseInt(identificadorTexto);
@@ -235,9 +230,6 @@ public class FormularioNuevoUsuario {
                 Beneficiario beneficiario = new Beneficiario(nombre, apellido, nacionalidad, fechaNacimiento,
                         direccionResidencia, telefono, mail, tipoUsuario, identificadorNumero);
                 ventaNuevoUsuario.dispose();
-                Serializadora.getInstancia().guardarDatosBeneficiarios(beneficiario);
-                InterfazLogin.ventanaLogin();
-
             }
 
         }
